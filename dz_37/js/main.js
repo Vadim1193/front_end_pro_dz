@@ -1,17 +1,12 @@
 
-function validSmartOperators(znak) {
-    const smartOperators = ['+', '-', '/', '*', '%'];
-    return smartOperators.includes(znak);
-};
-
 function SuperMath() {
     this.check = function(obj) {
 
-        if (validSmartOperators(obj.znak)) {
+        if (obj.znak) {
             let messageMatOperation = confirm(`Ви хочете виконати дiю '${obj.znak}' з числами ${obj.X} та ${obj.Y}?`);
 
             if (messageMatOperation) {
-                let result = this.MatematicalOperations(obj.X, obj.Y, obj.znak);
+                let result = this.calculation(obj.X, obj.Y, obj.znak);
                 alert(`Результат: ${result}`);
 
             } else {
@@ -38,7 +33,7 @@ function SuperMath() {
 
 };
 
-SuperMath.prototype.MatematicalOperations = function(x, y, znak) {
+SuperMath.prototype.calculation = function(x, y, znak) {
     switch(znak) {
         case '+' :
             return x + y;
