@@ -3,9 +3,9 @@ function SuperMath() {
     this.check = function(obj) {
 
         if (obj.znak) {
-            let messageMatOperation = confirm(`Ви хочете виконати дiю '${obj.znak}' з числами ${obj.X} та ${obj.Y}?`);
+            let answer = confirm(`Ви хочете виконати дiю '${obj.znak}' з числами ${obj.X} та ${obj.Y}?`);
 
-            if (messageMatOperation) {
+            if (answer) {
                 let result = this.calculation(obj.X, obj.Y, obj.znak);
                 alert(`Результат: ${result}`);
 
