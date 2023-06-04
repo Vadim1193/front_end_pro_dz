@@ -79,56 +79,52 @@ const img2 = new HTMLImg("http://some-picture", false, "IMG", "some-picture");
 
 //--------------------------------------------------------------------my_dz_41
 
-function HTMLElementInput(tagName, className, id, color, fontSize, inputType) {            //додаю конструктор HTMLElementInput по прикладу HTMLAnchor.     
-    mySuper(HTMLElement, this, [tagName, className, id]);                                                              
-    this.inputColor = color;                                   
-    this.fontSize = fontSize;                                  //поля екземпляра HTMLElementInput будуть такi
-    this.input = inputType;    
+function HTMLElementInput(tagName, className, id, required, inputType, attr) {            //додаю конструктор HTMLElementInput по прикладу HTMLAnchor.     
+  mySuper(HTMLElement, this, [tagName, className, id]);                                                              
+  this.required = required;                                                               //поля екземпляра HTMLElementInput будуть такi
+  this.input = inputType;  
+  this.attribute = attr;  
     
-    this.setColor = function(color) {
-        if (color) {                                                          //методи екземпляру такi
-            this.inputColor = color;
-            console.log(`Color ${color} for ${this.input}`);
-        } else {
-            console.log('Color not said');
-        }
-    }    
-
-    this.setFontSize = function(fontSize) {
-        if (fontSize) {
-            this.fontSize = fontSize;
-            console.log(`Set font size ${fontSize}`);
-        } else {
-            console.log('Font size not said');
-        }
+  this.setAttributes = function(attr) {                           //методи екземпляру такi
+    if (attr && typeof attr === 'object') {
+      this.attribute = attr;
+      console.log(`Attributes set ${this.attribute}`);
+    } else {
+      console.log('Invalid attributes');
     }
-};
+  }    
 
-HTMLElementInput.prototype.hover = function() {             //методи прототипа такi
-    console.log(`Hover....${this.input}`);
+  this.setRequired = function(required) {
+    if (typeof required === 'boolean') {
+      this.required = required;
+      console.log(`Set required ${required}`);
+    } else {
+      console.log('Invalid value');
+    }
+  }
 };
-
-HTMLElementInput.prototype.focus = function() {
-    console.log(`Focus in ${this.input}`);                    
+          
+HTMLElementInput.prototype.focus = function() {          //методи прототипа такi
+  console.log(`Focus in ${this.input}`);                    
 };
 
 HTMLElementInput.prototype.clear = function() {
-    console.log(`${this.input} clearance....`);
+  console.log(`${this.input} clearance....`);
 };
 
-const typeText = new HTMLElementInput('input','my_class', 'my_id', 'red', '20px', 'typeText');
+const typeText = new HTMLElementInput('input', 'my_class', 'my_id', true, 'typeText', { 
+  placeholder: 'Please enter your name', 
+  pattern: '[A-Z]' 
+});
 
 console.log(typeText, 'typeText');            //перевiрка
-typeText.hover();
 typeText.focus();
 typeText.clear();
 
-console.log(typeText);
-typeText.setFontSize();
+typeText.setAttributes();
 console.log(typeText);
 
-console.log(typeText);
-typeText.setColor('black');
+typeText.setRequired(false);
 console.log(typeText);
 
 console.dir(HTMLElementInput, "HTMLElementInput");
@@ -139,4 +135,12 @@ HTMLElementInput.prototype.__proto__ = HTMLElement.prototype;
 
 typeText.rotate();  //Прототипне успадковую rotate.
 typeText.render();  //Прототипне успадковую render.
+
+
+
+
+
+
+
+
 
