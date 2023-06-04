@@ -37,7 +37,7 @@ class House {
 
 //---------демонстрацiя 
 
-const personOne = new Person('Tommy', 'man');             // декілька екземплярів класу Людина;
+const personOne = new Person('Tommy', 'man');             //додаю декілька екземплярів класу Людина;
 const personTwo = new Person('Sendi', 'woman');
 const personThree = ('Roza');
 const personFour = new Person('Ivan', 'man');
@@ -47,13 +47,13 @@ console.log(personTwo);
 console.log(personThree);
 console.log(personFour);
 
-const apartmentPersonOne = new Apartment();            // декілька екземплярів класу Квартира;
+const apartmentPersonOne = new Apartment();            //додаю декілька екземплярів класу Квартира;
 const apartmentPersonTwo = new Apartment();
 const apartmentPersonThree = new Apartment();
 const apartmentPersonFour = new Apartment();
 
 
-apartmentPersonOne.addResident(personOne);   // додадити екземпляри класу Людина до екземплярів класу Квартира;
+apartmentPersonOne.addResident(personOne);   // додаю екземпляри класу Людина до екземплярів класу Квартира;
 apartmentPersonTwo.addResident(personTwo);
 apartmentPersonThree.addResident(personThree);
 apartmentPersonFour.addResident(personFour);
@@ -63,12 +63,12 @@ console.log(apartmentPersonTwo);
 console.log(apartmentPersonThree);
 console.log(apartmentPersonFour);
 
-const iqHouse = new House(2);               // екземпляр класу Будинок;
+const iqHouse = new House(2);               //додаю екземпляр класу Будинок;
 
 iqHouse.addApartment(apartmentPersonOne);
 iqHouse.addApartment(apartmentPersonTwo);
 iqHouse.addApartment(apartmentPersonThree);
-iqHouse.addApartment(apartmentPersonFour);          // додадити екземпляри класу Квартира до екземплярів класу Будинок.
+iqHouse.addApartment(apartmentPersonFour);          // додаю екземпляри класу Квартира до екземплярів класу Будинок.
 console.log(iqHouse);
 
 
