@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dz_45</title>
+
+    <style>
+        .wrapper {
+            background: rgb(51, 59, 82);
+            width: 1200px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        textarea {
+            width: 500px;
+            height: 300px;
+            resize: vertical;
+            padding: 5px;
+        }
+        
+        .my_input {
+            height: 22px;
+            width: 300px;
+        }
+
+        .text_label {
+            font-size: 18px;
+            color: white;
+        }
+
+        label {
+            display: block;
+            padding: 0 0 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="#">
+            <label for="name">
+                <span class="text_label">Write you name:</span>
+                <input type="text" id="name" placeholder="Name" class="my_input">
+            </label>
+            <label for="user_age">
+                <span class="text_label">Write you age:</span>
+                <input type="text" id="user_age" placeholder="Age" class="my_input">
+            </label>
+            <label for="foo">
+                <span class="text_label">Tell me about yourself:</span>
+                <input type="text" id="foo" placeholder="You can write here" class="my_input">
+            </label>
+            <textarea id="all_info"></textarea>
+        </form>
+    </div>
+</body>
+<script src="js/main.js"></script>
+
+</html>
+
+
