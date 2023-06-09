@@ -8,14 +8,13 @@ const textareaForm = document.getElementById('all_info');
 const myTime = 3000;
 
 function renderInfoTextArea() {
-    let inputsValue = [];
-    // console.log(inputsValue);
+    let inputsValue = '';
     inputs.forEach(function(input) {
         if(input.value !== "") {
-            inputsValue.push(input.value);
+            inputsValue += input.value + ', ';
         }
     });
-    textareaForm.value = inputsValue.join(',');
+    textareaForm.textContent = inputsValue.slice(0, -2);
 };
 
 setInterval(renderInfoTextArea, myTime);
