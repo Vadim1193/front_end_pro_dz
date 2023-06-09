@@ -14,7 +14,7 @@ function renderInfoTextArea() {
             inputsValue += input.value + ', ';
         }
     });
-    textareaForm.textContent = inputsValue.slice(0, -2);
+    textareaForm.value = inputsValue.slice(0, -2);
 };
 
 setInterval(renderInfoTextArea, myTime);
