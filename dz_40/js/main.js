@@ -4,12 +4,12 @@ class Hamburger {
     static SIZE_SMALL = { price: '50 tugrics', calories: 20 };
     static SIZE_BIG = { price: '100 tugrics', calories: 40 };
 
-    static STUFFING_CHEESE = { price: '10 tugrics', calories: 20};
-    static STUFFING_LETTUCE = { price: '20 tugrics', calories: 5};
-    static STUFFING_POTATO = { price: '15 tugrics', calories: 10};
+    static STUFFING_CHEESE = { price: '10 tugrics', calories: 20, type: 'cheese'};
+    static STUFFING_LETTUCE = { price: '20 tugrics', calories: 5, type: 'lettuce'};
+    static STUFFING_POTATO = { price: '15 tugrics', calories: 10, type: 'potato'};
 
-    static TOPPING_SAUCE = { price: '15 tugrics', calories: 0};
-    static TOPPING_MAYO = { price: '20 tugrics', calories: 5};
+    static TOPPING_SAUCE = { price: '15 tugrics', calories: 0, type: 'sauce'};
+    static TOPPING_MAYO = { price: '20 tugrics', calories: 5, type: 'mayo'};
     
     toppingForHamb = [];
 
@@ -19,7 +19,12 @@ class Hamburger {
     }
 
     addTopping(topping) {
-        this.toppingForHamb.push(topping);
+        if (topping) {
+            console.log(`Add topping: ${topping.type}`);
+            this.toppingForHamb.push(topping);
+        } else {
+            console.log('Invalid topping.');
+        }
     }
 
     calcCalories() {
