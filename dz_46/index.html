@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dz_46</title>
+    <script src="js/main.js"></script>
+    <style>
+        .block_diagrama {
+            height: 108px;
+            width: 35px;
+            outline: 1px solid black;
+            position: relative;
+        }
+
+        .comission {
+            background: red;
+            width: 35px;
+            max-height: 8px;
+            min-height: 0;
+            position: absolute;
+            left: 0;
+            height: 0;
+            bottom: 0;
+        }
+
+        .green_block {
+            background: green;
+            width: 35px;
+            max-height: 100px;
+            min-height: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="#">
+            <input type="range" min="0" max="100" value="0" class="input_range">
+            <input type="number" min="0" max="100" value="0" class="input_number">
+        </form>
+        <div class="block_diagrama">
+            <div class="comission"></div>
+            <div class="green_block"></div>
+        </div>
+    </div>
+</body>
+
+</html>
