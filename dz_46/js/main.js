@@ -1,40 +1,60 @@
 
-window.onload = function() {    
+function onLoadHandler() {    
     const inputRange = document.querySelector('.input_range');
-    // console.log(inputRange);
     const inputNumber = document.querySelector('.input_number');
-    // console.log(inputNumber);
     const greenBlock = document.querySelector('.green_block');
-    // console.log(greenBlock);
     const commissionBlock = document.querySelector('.comission');
-    // console.log(commissionBlock);
 
-    inputRange.addEventListener('input', () => {
-        inputNumber.value = inputRange.value;
-        greenBlock.style.height = inputRange.value + "px";
+    const onInputNumberHandler = () => {
+        const inputValue = inputNumber.value;
+        setValue(inputValue);
+    }
 
-        let commissionValue;
-        if (parseInt(inputRange.value) === 0) {
-            commissionValue = 0;
-        } else if(inputRange.value <= 20) {
-            commissionValue = 2;
-        } else if (inputRange.value >= 20 && inputRange.value < 50) {
-            commissionValue = 4;
-        } else if (inputRange.value >= 50 && inputRange.value < 75) {
-            commissionValue = 6;
-        } else if (inputRange.value >= 75 && inputRange.value <= 100) {
-            commissionValue = 8;  
-        }
+    const oninputRangeHandler = () => {
+        const rangeValue = inputRange.value;
+        setValue(rangeValue);
 
-        commissionBlock.style.height = commissionValue + "px";
+        const commissionValue = getCommission(inputRange.value);
+        priceScale(rangeValue, commissionValue);
+    }
+
+    inputNumber.addEventListener('input', onInputNumberHandler);
+    inputRange.addEventListener('input', oninputRangeHandler);
+
+    function priceScale(priceHeight, commissionHeight) {
+        greenBlock.style.height = priceHeight + "px";
+        commissionBlock.style.height = commissionHeight + "px";
         commissionBlock.style.bottom = greenBlock.clientHeight + "px";
-    }) 
-        
-    inputNumber.oninput = function() {
-        inputRange.value = inputNumber.value;
-        // console.log(this.value);
+    }
+
+    function setValue(value) {
+        inputNumber.value = value;
+        inputRange.value = value; 
+    }
+
+    function getCommission(value) {
+        if (parseInt(value) === 0) {
+          return 0;
+        } else if (value <= 20) {
+          return 2;
+        } else if (value < 50) {
+          return 4;
+        } else if (value < 75) {
+          return 6;
+        } else if (value <= 100) {
+          return 8;
+        }
     }
 };
+
+window.onload = onLoadHandler;
+
+
+    
+
+
+
+
 
 
 
