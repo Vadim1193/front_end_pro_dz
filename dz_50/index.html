@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dz_50</title>
+    <script src="js/main.js"></script>
+    <style>
+        body {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        #firstBlock, #secondBlock {
+            border: 3px solid black;
+        }
+
+        input {
+            width: 50px;
+            padding: 20px;
+            margin: 70px 25px;
+        }
+
+        .wrapper {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .wrapper:first-child {
+            margin: 20px 0 0 0;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 25px;
+            margin: 70px 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="firstBlock">
+            <input class="number_first" type="number">
+            <button class="button_first_block">Click</button>
+        </div>
+        <div id="buttons">
+            <button class="clear">Clear counter</button>
+            <button class="button_set">Set counter</button>
+        </div>
+        <div id="secondBlock">
+            <input class="number_second" type="number">
+            <button class="button_second_block">Click</button>
+        </div>
+    </div>
+</body>
+
+</html>
