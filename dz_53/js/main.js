@@ -9,7 +9,7 @@ const promiseObj = [
     
 const resolver = (index) => {
     console.log(promiseObj[index].resValue, 'resValue');
-    return Promise.resolve({value: promiseObj[index].resValue, index: ++index});
+    return ({value: promiseObj[index].resValue, index: ++index});
 }
     
 const rejecter = (index) => {
@@ -31,32 +31,30 @@ const myNewPromise = new Promise((resolve, reject) => {
 
 myNewPromise
     .then(
-        ({index}) => { return resolver(index)},  
-        ({index}) => { return rejecter(index)}    //спрацюе cb цей буде 0
+        ({index}) => { return resolver(index) },  
+        ({index}) => { return rejecter(index) } 
     )
 
     .then(
-        ({index}) => { return rejecter(index)},
-        ({index}) => { return resolver(index)}  //спрацюе cb цей буде 1
+        ({index}) => { return rejecter(index) },
+        ({index}) => { return resolver(index) } 
     )
 
     .then(
-        ({index}) => { return resolver(index)}, //спрацюе cb цей буде 3
-        ({index}) => { return rejecter(index)}
+        ({index}) => { return resolver(index) }
     )
     
     .then(
-        ({index}) => { return rejecter(index)}, //спрацюе cb цей буде 6
-        ({index}) => { return resolver(index)}
+        ({index}) => { return rejecter(index) }, 
     )
 
     .then(
-        ({index}) => { return resolver(index)},
-        ({index}) => { return rejecter(index)}  //спрацюе cb цей буде 8
+        ({index}) => { return resolver(index) },
+        ({index}) => { return rejecter(index) } 
     )
     .then(
-        ({index}) => { return resolver(index)},
-        () => { console.log('---End---')}
+        ({index}) => { return resolver(index) },
+        () => { console.log('---End---') }
     )
 ;
 
@@ -68,28 +66,25 @@ myNewPromise
     
 // myPromise
 //     .then(
-//         ({index}) => { return resolver(index) },  //спрацюе cb цей буде 0
-//         ({index}) => { return rejecter(index) }
+//         ({index}) => { return resolver(index) }
 //     )
 
 //     .then(
-//         ({index}) => { return rejecter(index) },   //спрацюе cb цей буде 2
-//         ({index}) => { return resolver(index) }
+//         ({index}) => { return rejecter(index) }
 //     )                               
 
 //     .then(
 //         ({index}) => { return rejecter(index) }, 
-//         ({index}) => { return resolver(index) }  //спрацюе cb цей буде 3
+//         ({index}) => { return resolver(index) } 
 //     )
 
 //     .then(
-//         ({index}) => { return rejecter(index) },   //спрацюе cb цей буде 6 
-//         ({index}) => { return resolver(index) }
+//         ({index}) => { return rejecter(index) }
 //     )
 
 //     .then(
 //         ({index}) => { return rejecter(index) },
-//         ({index}) => { return resolver(index) }  //спрацюе cb цей буде 7
+//         ({index}) => { return resolver(index) } 
 //     )
 // ;
 
