@@ -1,8 +1,4 @@
 
-// Використовуючи ланцюжок Promise згідно з таблицею (див вкладення).
-// Організувати виведення в консоль такий порядок цифр "0 1 3 6 8", "0 2 3 6 7".
-// Де 0 - це значення, яке виводиться в сallback - ф-ії яка передається в Promise.
-
 const promiseObj = [
     {resValue: 0, rejValue: 0},
     {resValue: 1, rejValue: 2},
@@ -10,16 +6,6 @@ const promiseObj = [
     {resValue: 5, rejValue: 6},
     {resValue: 7, rejValue: 8},
 ]
-   
-const myPromise = new Promise((resolve, reject) => {
-    let flag = true; 
-
-    if (flag) {
-        resolve({ index: promiseObj[0].resValue });
-    } else {
-        reject({ index: promiseObj[0].rejValue });
-    }
-});
     
 const resolver = (index) => {
     console.log(promiseObj[index].resValue, 'resValue');
@@ -30,17 +16,83 @@ const rejecter = (index) => {
     console.log(promiseObj[index].rejValue, 'rejValue');
     return Promise.reject({value: promiseObj[index].rejValue, index: ++index});
 }
-    
-// myPromise 
-//     .then(({index}) => resolver(index))
-//     .then(({index}) => resolver(index))
-//     .then(({index}) => resolver(index))
-    // .then(({index}) => rejecter(index))
 
+//----------------------"0 1 3 6 8"
+
+const myNewPromise = new Promise((resolve, reject) => {
+    const flag = false;
+
+    if(flag) {
+        resolve({ index: 0 });
+    } else {
+        reject({ index: 0 });
+    }
+})
+
+myNewPromise
+    .then(
+        ({index}) => { return resolver(index)},  
+        ({index}) => { return rejecter(index)}    //спрацюе cb цей буде 0
+    )
+
+    .then(
+        ({index}) => { return rejecter(index)},
+        ({index}) => { return resolver(index)}  //спрацюе cb цей буде 1
+    )
+
+    .then(
+        ({index}) => { return resolver(index)}, //спрацюе cb цей буде 3
+        ({index}) => { return rejecter(index)}
+    )
     
-myPromise 
-    .then(({index}) => rejecter(index))
-    .then(({index}) => rejecter(index))
-    // .then(({index}) => resolver(index))
-    // .then(({index}) => rejecter(index))
-    // .then(({index}) => resolver(index))
+    .then(
+        ({index}) => { return rejecter(index)}, //спрацюе cb цей буде 6
+        ({index}) => { return resolver(index)}
+    )
+
+    .then(
+        ({index}) => { return resolver(index)},
+        ({index}) => { return rejecter(index)}  //спрацюе cb цей буде 8
+    )
+    .then(
+        ({index}) => { return resolver(index)},
+        () => { console.log('---End---')}
+    )
+;
+
+//----------------------"0 2 3 6 7"
+
+// const myPromise = new Promise((resolve, reject) => {
+//     resolve({ index: 0 });
+// })
+    
+// myPromise
+//     .then(
+//         ({index}) => { return resolver(index) },  //спрацюе cb цей буде 0
+//         ({index}) => { return rejecter(index) }
+//     )
+
+//     .then(
+//         ({index}) => { return rejecter(index) },   //спрацюе cb цей буде 2
+//         ({index}) => { return resolver(index) }
+//     )                               
+
+//     .then(
+//         ({index}) => { return rejecter(index) }, 
+//         ({index}) => { return resolver(index) }  //спрацюе cb цей буде 3
+//     )
+
+//     .then(
+//         ({index}) => { return rejecter(index) },   //спрацюе cb цей буде 6 
+//         ({index}) => { return resolver(index) }
+//     )
+
+//     .then(
+//         ({index}) => { return rejecter(index) },
+//         ({index}) => { return resolver(index) }  //спрацюе cb цей буде 7
+//     )
+// ;
+
+
+
+
