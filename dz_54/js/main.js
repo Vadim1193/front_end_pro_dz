@@ -40,7 +40,7 @@ function onLoadHandler() {
 
   const helperJson = (info) => {
     if (!info.ok) {
-       throw new Error(`Помилка запросу, cтатус: ${info.status}`);
+      console.error('Info flag false');   
     } else {
       return info.json();
     }
@@ -75,7 +75,9 @@ function onLoadHandler() {
       document.body.append(wrapperWeather);
 
     }) 
-    .catch(() => console.error('Data not found'));      
+    .catch((error) => {
+      throw new Error(`Помилка запиту, ${error}`)
+    })
   }
   getWeatherInfo();
 }
