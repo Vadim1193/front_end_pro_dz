@@ -51,11 +51,10 @@ body {
             }
 
             .btn-register {
-                width: 190px;
-                height: 50px;
+                width: 165px;
+                height: 40px;
                 border-radius: 20px;
                 background: $accent-color;
-                font-size: 18px;
                 font-weight: 600;
                 color: white;
                 margin: 20px 0;
@@ -63,6 +62,19 @@ body {
                 &:hover {
                     background: white;
                     color: black;
+                }
+            }
+
+            .btn-signIn {
+                background: none;
+                border: none;
+                color: rgb(62, 182, 226);
+                font-size: 18px;
+                font-weight: 700;
+                margin: 5px 0 15px 0;
+
+                &:hover {
+                    color: white;
                 }
             }
         }

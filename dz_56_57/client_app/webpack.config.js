@@ -49,6 +49,9 @@ module.exports = {
                     options: {
                         presets: [
                             ['@babel/preset-env', { targets: "defaults" }]
+                        ],
+                        plugins: [
+                            ["@babel/plugin-proposal-decorators", { version: "2023-05" }],
                         ]
                     }
                 }
@@ -69,9 +72,10 @@ module.exports = {
 
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src')
+            '@': path.resolve(__dirname, './src'),
         }
-    }
+    },
+    devtool: "source-map"
 }
 
 // history
