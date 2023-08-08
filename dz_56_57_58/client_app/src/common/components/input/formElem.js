@@ -48,3 +48,4 @@ export const InputsForm = {
     name: 'password-user',
   }),
 }
+

@@ -49,12 +49,14 @@ export default class Router {
     }
 
     go(pathTo) {
+        const next = (anotherPathTo) => {
+            const route = anotherPathTo || pathTo;
 
-        const next = (anotherPathTo = null ) => {
-            this.#updateView(pathTo);
             if (typeof history.onpushstate === 'function') {
-                history.onpushstate(null, null, anotherPathTo || pathTo);
+                history.onpushstate(null, null, route);
             }
+
+            this.#updateView(route);
         }
 
         const pathFrom = location.pathname;

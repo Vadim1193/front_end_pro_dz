@@ -22,6 +22,14 @@ app.use((req, res, next) => {
 
 let IS_AUTH = false;
 
+app.get('/', function (req, res) {
+    if (IS_AUTH) {
+        res.status(200).json({ user: 'User', message: 'Ok' });
+    } else {
+        res.status(401).json({ message: "User is not defined" });
+    }
+})
+
 app.post("/sign-in", (req, res) => {
     if (req.body.login && req.body.password) {
         IS_AUTH = true;
@@ -31,6 +39,11 @@ app.post("/sign-in", (req, res) => {
 
     res.status(401).json({ message: "User is not defined" });
 });
+
+app.get('/logout', (req, res) => {
+    IS_AUTH = false;
+    res.status(401).json({ message: "User exit" });
+})
 
 app.listen(port, () => {
     console.log("Started server");

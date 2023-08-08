@@ -6,12 +6,14 @@ export const state = {
     showAlert: {
         type: '',
         message: '',
-    }
+    },
+    userInfo: null
 };
 
 export const mutation_types = {
     SET_IS_LOADING: 'SET_IS_LOADER',
     SET_SHOW_ALERT: 'SET_SHOW_ALERT',
+    SET_USER_INFO: 'SET_USER_INFO'
 };
 
 const mutations = {
@@ -22,6 +24,10 @@ const mutations = {
 
     [mutation_types.SET_SHOW_ALERT](state, payload ) {
         state.showAlert = payload;
+    },
+
+    [mutation_types.SET_USER_INFO](state, payload) {
+        state.userInfo = payload;
     }
 };
 

@@ -4,6 +4,7 @@ import Component from "@/plugins/component";
 import { AsFragment, BindEvent } from "@/common/decorators";
 import axios from 'axios';
 import InputSignIn from "@/common/components/input/input-sign-in";
+import { router } from '@/router/router';
 
 export default class SignIn extends Component {
     credentials = {};
@@ -29,7 +30,6 @@ export default class SignIn extends Component {
         }, 1000)
     }
 
-
     async onSignIn() {
         try {
             const response = await axios.post('http://localhost:9001/sign-in', this.credentials);
@@ -38,6 +38,8 @@ export default class SignIn extends Component {
                     type: 'alert-success',
                     message: 'Successful authorization'
                 })
+                store.dispatch(mutation_types.SET_USER_INFO, response.data);
+                router.go('/');
             }
 
         } catch (error) {
