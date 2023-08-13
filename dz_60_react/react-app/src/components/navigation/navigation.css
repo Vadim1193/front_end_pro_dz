@@ -1,0 +1,54 @@
+
+.navigation {
+    position: fixed;
+    top: 11%;
+    left: 12%;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav-home::before, .nav-contacts::before, .nav-call::before, .nav-store::before, .nav-support::before {
+    content: "";
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+aside li a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+
+aside li a:hover {
+    padding-bottom: 3px;
+    border-bottom: 2px solid white;
+}
+
+.nav-home::before {
+    background: url(../../img/css_sprites.png) -10px -10px;
+}
+
+.nav-contacts::before {
+    background: url(../../img/css_sprites.png) -90px -90px;
+}
+
+.nav-call::before {
+    background: url(../../img/css_sprites.png) -90px -10px;
+}
+
+.nav-store::before {
+    background: url(../../img/css_sprites.png) -170px -10px;
+}
+
+.nav-support::before {
+    background: url(../../img/css_sprites.png) -10px -90px;
+}
+
+.list-icons li {
+    padding-bottom: 15px;
+}
+
+.list-icons li:last-child {
+    padding-bottom: 0;
+}

@@ -1,5 +1,4 @@
 export default class Component {
-
     props = {};
 
     constructor(...props) {
@@ -21,6 +20,13 @@ export default class Component {
 
     replaceSlot(template, ...slots) {
         for (const { key, replacer } of slots) {
+            const node = replacer()
+
+            if (Array.isArray(node)) {
+                template.querySelector(key).replaceWith(...node);
+                continue;
+            }
+
             template.querySelector(key).replaceWith(replacer());
         }
 

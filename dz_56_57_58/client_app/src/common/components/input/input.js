@@ -8,18 +8,13 @@ class Input extends Component {
         super(...props);
     }
 
-    onChangeHandler(event) {
-        this.props.onChange(event);
-    }
-
     @AsFragment
     getTemplate() {
         return `
             <div class="${this.props.parentClass}">
-                <label>
-                    ${this.props.label}
-                </label>
-                <input type="${this.props.type}" 
+                ${this.props.label ? `<label>${this.props.label}</label>` : ''}
+                <input type="${this.props.type}"
+                    id="${this.props.id}"
                     name="${this.props.name}" 
                     ${this.props.placeholder ? `placeholder="${this.props.placeholder}" ` : ''}
                     autocomplete="${this.props.autocomplete}"
@@ -30,13 +25,8 @@ class Input extends Component {
         `
     }
 
-    bindEvent(node) {
-        node.querySelector('input').addEventListener('change', (event) => this.onChangeHandler(event));
-        return node;
-    }
-
     render() {
-        return this.bindEvent(this.getTemplate());
+        return this.getTemplate();
     }
 
 }

@@ -47,5 +47,14 @@ export const InputsForm = {
     type: 'password',
     name: 'password-user',
   }),
+
+  SearchInput: new Input({
+    id: 'input_search',
+    placeholder: 'Search...',
+    type: 'text',
+    autocomplete: 'off',
+    name: 'movies',
+  })
+
 }
 

@@ -1,0 +1,23 @@
+
+.pages-list {
+    display: flex;
+    gap: 25px;
+}
+
+nav li a {
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav li a:hover {
+    padding-bottom: 3px;
+    border-bottom: 2px solid white;
+}
+
+.active {
+    padding-bottom: 3px;
+    border-bottom: 2px solid white;
+}
+

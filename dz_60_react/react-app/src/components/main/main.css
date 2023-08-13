@@ -1,0 +1,42 @@
+
+.container {
+    max-width: 1200px;
+    margin: 25px auto;
+    background-color: rgba(20, 156, 202, 0.343);
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.my-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 400px;
+}
+
+.advantage {
+    font-size: 18px;
+    display: flex;
+    background: transparent;
+    gap: 30px;
+}
+
+.title-cards {
+    font-size: 22px;
+    padding-bottom: 15px;
+    color: #61dafb;
+    text-align: center;
+}
+
+.description-card {
+    line-height: 25px;
+}
+
+.wrapper-card {
+    padding: 20px;
+    background-color: rgba(20, 156, 202, 0.343);
+    border-radius: 25px;
+}

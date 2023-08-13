@@ -24,4 +24,10 @@ export const Buttons = {
         value: 'Google',
         name: 'google'
     }),
+
+    BtnSearch: new Button({
+        class: 'btn-search',
+        value: '<i class="bi bi-search"></i>',
+    })
 }
+
