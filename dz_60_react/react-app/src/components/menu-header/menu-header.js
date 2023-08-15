@@ -9,7 +9,7 @@ const menuList = [
     { id: 5, value: 'Where to buy', link: '/foo' }
 ];
 
-export default function MyNavListComp() {
+export default function MyNavList() {
     return (
         <nav>
             <NavList items={menuList} className="pages-list" itemRender={renderLink} /> 

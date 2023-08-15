@@ -1,14 +1,14 @@
 import './header.css';
-import NavListComp from '../menu-header/menu-header';
+import NavList from '../menu-header/menu-header';
 
-export default function HeaderComp() {
+export default function Header() {
     const logoName = 'LoGo';
 
     return (
         <header>
             <div className="wrapper-header">
                 <span className="logo">{logoName}</span>
-                <NavListComp />
+                <NavList />
             </div>
         </header>
     )

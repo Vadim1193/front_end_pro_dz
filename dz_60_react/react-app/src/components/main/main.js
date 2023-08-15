@@ -2,15 +2,15 @@ import './main.css';
 import logo from '../../img/logo.png';
 import Cards from './company-advantage';
 
-function createContainer(content, className) {
+function Container(props) {
     return(
-        <div className={`container ${className ? className : ''}`}>
-            {content}
+        <div className={`container ${props.className ? props.className : ''}`}>
+            {props.children}
         </div>
     )
 }
 
-export default function MainComp() {
+export default function Main() {
     const pictureLogo = <img src={logo} alt="logo" />;
     const infoCompany = `Each company, of course, approaches the design of the "About Us" page in its own way. 
         It is even called differently by everyone: "About the company", "About the store", etc. But, as practice shows, 
@@ -23,15 +23,21 @@ export default function MainComp() {
 
     return(
         <main>
-            {createContainer(pictureLogo, 'my-logo')}
-            {createContainer(infoCompany)}
-            {createContainer(loremText)}
-            {createContainer(<Cards />, 'advantage')}
+            <Container className='my-logo'>
+                {pictureLogo} 
+            </Container>
+            <Container>
+                {infoCompany}
+            </Container>
+            <Container>
+                {loremText}
+            </Container>
+            <Container className='advantage'>
+                <Cards />
+            </Container>
         </main>
     )
 }
-
-
 
 
 

@@ -26,11 +26,11 @@ const advantage = [
     },
 ]
 
-function CreateCard({title, description}) { 
+function Card(props) { 
     return (
         <div className="wrapper-card">
-            <h2 className="title-cards">{title}</h2>
-            <p className="description-card">{description}</p>
+            <h2 className="title-cards">{props.title}</h2>
+            <p className="description-card">{props.description}</p>
         </div>
     )
 }
@@ -39,7 +39,7 @@ export default function Cards() {
     return (
         <>
             {advantage.map(item => (
-                <CreateCard
+                <Card
                     title={item.title}
                     description={item.description} 
                     key={item.id} 
