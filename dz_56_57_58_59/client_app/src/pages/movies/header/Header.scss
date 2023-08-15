@@ -1,0 +1,28 @@
+.header {
+  padding: 15px;
+  background-color: #5e5373;
+
+  .container_search {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  #input_search {
+    border: none;
+    border-radius: 20px 0 0 20px;
+    padding: 10px 20px;
+    width: 500px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.header__exit {
+  padding: 0 15px;
+  border-radius: 3px;
+  border: none;
+  font-size: 20px;
+  margin-right: 20px;
+}
