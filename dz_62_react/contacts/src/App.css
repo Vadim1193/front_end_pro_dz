@@ -1,0 +1,24 @@
+
+header {
+  background: #002f34;
+  text-align: center;
+}
+
+h1 {
+  color: #24e5db;
+  padding: 15px;
+}
+
+.table-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.btn-add {
+  background: rgb(51, 89, 160);
+  color: white;
+  padding: 0 30px;
+}
